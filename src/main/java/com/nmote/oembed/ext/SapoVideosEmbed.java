@@ -18,6 +18,14 @@ public class SapoVideosEmbed extends BasicOEmbed {
 		return super.getDescription();
 	}
 
+	public boolean isHd() {
+		return hd;
+	}
+
+	public void setHd(boolean hd) {
+		this.hd = hd;
+	}
+
 	public void setSynopse(String videoDescription) {
 		super.setDescription(videoDescription);
 	}

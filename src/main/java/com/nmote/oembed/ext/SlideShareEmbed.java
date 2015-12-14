@@ -13,13 +13,61 @@ public class SlideShareEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public Integer getConversionVersion() {
+		return conversionVersion;
+	}
+
+	public String getSlideImageBaseUrl() {
+		return slideImageBaseUrl;
+	}
+
+	public String getSlideImageBaseUrlSuffix() {
+		return slideImageBaseUrlSuffix;
+	}
+
+	public Integer getSlideshowId() {
+		return slideshowId;
+	}
+
 	@JsonProperty("thumbnail")
 	public String getThumbnail() {
 		return super.getThumbnailUrl();
 	}
 
+	public Integer getTotalSlides() {
+		return totalSlides;
+	}
+
+	public String getVersionNo() {
+		return versionNo;
+	}
+
+	public void setConversionVersion(Integer conversionVersion) {
+		this.conversionVersion = conversionVersion;
+	}
+
+	public void setSlideImageBaseUrl(String slideImageBaseUrl) {
+		this.slideImageBaseUrl = slideImageBaseUrl;
+	}
+
+	public void setSlideImageBaseUrlSuffix(String slideImageBaseUrlSuffix) {
+		this.slideImageBaseUrlSuffix = slideImageBaseUrlSuffix;
+	}
+
+	public void setSlideshowId(Integer slideshowId) {
+		this.slideshowId = slideshowId;
+	}
+
 	public void setThumbnail(String thumbnailUrl) {
 		super.setThumbnailUrl(thumbnailUrl);
+	}
+
+	public void setTotalSlides(Integer totalSlides) {
+		this.totalSlides = totalSlides;
+	}
+
+	public void setVersionNo(String versionNo) {
+		this.versionNo = versionNo;
 	}
 
 	@JsonProperty("conversion_version")

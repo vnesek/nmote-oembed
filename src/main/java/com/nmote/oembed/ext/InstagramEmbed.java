@@ -13,6 +13,22 @@ public class InstagramEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public String getAuthorId() {
+		return authorId;
+	}
+
+	public String getMediaId() {
+		return mediaId;
+	}
+
+	public void setAuthorId(String authorId) {
+		this.authorId = authorId;
+	}
+
+	public void setMediaId(String mediaId) {
+		this.mediaId = mediaId;
+	}
+
 	@JsonProperty("author_id")
 	private String authorId;
 

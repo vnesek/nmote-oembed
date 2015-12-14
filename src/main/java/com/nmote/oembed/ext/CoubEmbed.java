@@ -13,6 +13,14 @@ public class CoubEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public String getChannelUrl() {
+		return channelUrl;
+	}
+
+	public void setChannelUrl(String channelUrl) {
+		this.channelUrl = channelUrl;
+	}
+
 	@JsonProperty("channel_url")
 	private String channelUrl;
 }

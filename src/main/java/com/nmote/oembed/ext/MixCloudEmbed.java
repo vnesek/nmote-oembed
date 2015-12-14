@@ -15,6 +15,14 @@ public class MixCloudEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	@JsonProperty("image")
 	private String imageUrl;
 

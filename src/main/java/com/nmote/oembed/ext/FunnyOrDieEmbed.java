@@ -13,6 +13,14 @@ public class FunnyOrDieEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public Float getDuration() {
+		return duration;
+	}
+
+	public void setDuration(Float duration) {
+		this.duration = duration;
+	}
+
 	@JsonProperty("duration")
 	private Float duration;
 

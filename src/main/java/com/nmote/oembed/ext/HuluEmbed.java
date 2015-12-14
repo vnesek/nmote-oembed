@@ -13,6 +13,54 @@ public class HuluEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public String getAirDate() {
+		return airDate;
+	}
+
+	public Float getDuration() {
+		return duration;
+	}
+
+	public String getEmbedUrl() {
+		return embedUrl;
+	}
+
+	public Integer getLargeThumbnailHeight() {
+		return largeThumbnailHeight;
+	}
+
+	public String getLargeThumbnailUrl() {
+		return largeThumbnailUrl;
+	}
+
+	public Integer getLargeThumbnailWidth() {
+		return largeThumbnailWidth;
+	}
+
+	public void setAirDate(String airDate) {
+		this.airDate = airDate;
+	}
+
+	public void setDuration(Float duration) {
+		this.duration = duration;
+	}
+
+	public void setEmbedUrl(String embedUrl) {
+		this.embedUrl = embedUrl;
+	}
+
+	public void setLargeThumbnailHeight(Integer largeThumbnailHeight) {
+		this.largeThumbnailHeight = largeThumbnailHeight;
+	}
+
+	public void setLargeThumbnailUrl(String largeThumbnailUrl) {
+		this.largeThumbnailUrl = largeThumbnailUrl;
+	}
+
+	public void setLargeThumbnailWidth(Integer largeThumbnailWidth) {
+		this.largeThumbnailWidth = largeThumbnailWidth;
+	}
+
 	@JsonProperty("air_date")
 	private String airDate;
 

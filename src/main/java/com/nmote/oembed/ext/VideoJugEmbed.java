@@ -13,6 +13,14 @@ public class VideoJugEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	@JsonProperty("id")
 	private String id;
 }

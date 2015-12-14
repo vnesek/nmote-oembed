@@ -13,8 +13,40 @@ public class AnimotoEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public Integer getIconWidth() {
+		return iconWidth;
+	}
+
+	public Integer getIconHeight() {
+		return iconHeight;
+	}
+
+	public String getIconUrl() {
+		return iconUrl;
+	}
+
+	public String getVideoUrl() {
+		return videoUrl;
+	}
+
+	public void setIconWidth(Integer icon_width) {
+		this.iconWidth = icon_width;
+	}
+
+	public void setIconHeight(Integer iconHeight) {
+		this.iconHeight = iconHeight;
+	}
+
+	public void setIconUrl(String iconUrl) {
+		this.iconUrl = iconUrl;
+	}
+
+	public void setVideoUrl(String videoUrl) {
+		this.videoUrl = videoUrl;
+	}
+
 	@JsonProperty("icon_width")
-	private Integer icon_width;
+	private Integer iconWidth;
 
 	@JsonProperty("icon_height")
 	private Integer iconHeight;

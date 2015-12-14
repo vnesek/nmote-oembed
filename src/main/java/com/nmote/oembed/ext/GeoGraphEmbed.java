@@ -12,6 +12,14 @@ public class GeoGraphEmbed extends WebPageAndLicenseEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public Object getGeo() {
+		return geo;
+	}
+
+	public void setGeo(Object geo) {
+		this.geo = geo;
+	}
+
 	@JsonProperty("geo")
 	private Object geo;
 }

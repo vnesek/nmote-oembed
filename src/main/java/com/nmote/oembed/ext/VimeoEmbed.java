@@ -13,6 +13,38 @@ public class VimeoEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	public Float getDuration() {
+		return duration;
+	}
+
+	public Integer getIsPlus() {
+		return isPlus;
+	}
+
+	public String getUri() {
+		return uri;
+	}
+
+	public String getVideoId() {
+		return videoId;
+	}
+
+	public void setDuration(Float duration) {
+		this.duration = duration;
+	}
+
+	public void setIsPlus(Integer isPlus) {
+		this.isPlus = isPlus;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
+	public void setVideoId(String videoId) {
+		this.videoId = videoId;
+	}
+
 	@JsonProperty("duration")
 	private Float duration;
 

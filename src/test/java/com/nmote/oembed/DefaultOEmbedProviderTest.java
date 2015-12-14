@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Nmote Ltd. 2015. All rights reserved.
+ * See LICENSE doc in a root of project folder for additional information.
+ */
+
 package com.nmote.oembed;
 
 import static org.junit.Assert.*;
@@ -9,7 +14,7 @@ import org.junit.Test;
 
 public class DefaultOEmbedProviderTest {
 
-	@Ignore // Network access 
+	@Ignore // Network access
 	@Test
 	public void youTube() throws IOException{
 		String url = "https://www.youtube.com/watch?v=V_Qo4a_3IeQ";

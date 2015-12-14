@@ -15,7 +15,7 @@ public class ProviderEndpoint {
 	}
 
 	public ProviderEndpoint(String url, Class<? extends BasicOEmbed> embedClass) {
-		this(url, null, Collections.<String> emptySet());
+		this(url, embedClass, Collections.<String> emptySet());
 	}
 
 	public ProviderEndpoint(String url, Class<? extends BasicOEmbed> embedClass, Set<String> schemes) {

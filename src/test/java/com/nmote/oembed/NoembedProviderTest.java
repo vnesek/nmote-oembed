@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
 
 public class NoembedProviderTest {
 
+	@Ignore // Network access
 	@Test(expected = IOException.class)
 	public void instantcom() throws IOException, URISyntaxException {
 		provider.resolve("http://www.instantcom.net");

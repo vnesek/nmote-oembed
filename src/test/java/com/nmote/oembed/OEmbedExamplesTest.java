@@ -12,6 +12,7 @@ import java.util.Map;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
+import org.junit.Ignore;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
@@ -65,6 +66,7 @@ public class OEmbedExamplesTest {
 		assertTrue(pi.getEndpoints().contains(pe));
 	}
 
+	@Ignore // Network access
 	@Theory
 	public void resolve(String url) throws IOException, URISyntaxException {
 		DefaultOEmbedProvider ep = new DefaultOEmbedProvider();

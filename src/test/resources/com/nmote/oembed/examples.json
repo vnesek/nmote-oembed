@@ -1,0 +1,71 @@
+{
+	"Animoto": [
+		"http://animoto.com/oembeds/create/?format=xml&url=http%3A%2F%2Fanimoto.com%2Fplay%2FJzwsBn5FRVxS0qoqcBP5zA"
+	],
+	"CollegeHumor": [
+		"http://www.collegehumor.com/oembed.xml?url=http%3A%2F%2Fwww.collegehumor.com%2Fvideo%2F3922232%2Fprank-war-7-the-half-million-dollar-shot"
+	],
+	"Coub": [
+		"http://coub.com/api/oembed.xml?url=http://coub.com/view/um0um0",
+		"http://coub.com/api/oembed.json?url=http://coub.com/embed/um0um0",
+		"http://coub.com/api/oembed.xml?url=http://coub.com/embed/um0um0",
+		"http://coub.com/api/oembed.json?url=http://coub.com/view/um0um0"
+	],
+	"Deviantart.com": [
+		"http://backend.deviantart.com/oembed?format=xml&url=http%3A%2F%2Fbrowse.deviantart.com%2Fart%2FVita-Brevis-379998342"
+	],
+	"Dotsub": [
+		"http://dotsub.com/services/oembed?url=http://dotsub.com/view/665bd0d5-a9f4-4a07-9d9e-b31ba926ca78&format=xml"
+	],
+	"Flickr": [
+		"http://flickr.com/services/oembed?url=http%3A//www.flickr.com/photos/bees/2362225867/"
+	],
+	"FunnyOrDie": [
+		"http://www.funnyordie.com/oembed.xml?url=http://www.funnyordie.com/videos/a7311134ac/patton-oswalt-in-heavy-metal"
+	],
+	"Geograph Britain and Ireland": [
+		"http://api.geograph.org.uk/api/oembed?url=http://s0.geograph.org.uk/geophotos/02/92/87/2928776_72cdbeab.jpg",
+		"http://api.geograph.org.uk/api/oembed?url=http://www.geograph.org.uk/photo/2928776&format=json"
+	],
+	"Geograph Channel Islands": [
+		"http://www.geograph.org.gg/api/oembed?url=http://s1.channel.geographs.org/photos/00/07/000773_e1e23765_120x120.jpg&format=json",
+		"http://www.geograph.org.gg/api/oembed?url=http://www.geograph.org.gg/photo/773"
+	],
+	"Geograph Germany": [
+		"http://geo.hlipp.de/restapi.php/api/oembed?url=http://geo.hlipp.de/photo/20260&format=json",
+		"http://geo.hlipp.de/restapi.php/api/oembed?url=http://geo.hlipp.de/photos/02/02/020260_dcfdbf8e.jpg"
+	],
+	"Getty Images": [
+		"http://embed.gettyimages.com/oembed?url=http%3a%2f%2fgty.im%2f74917285"
+	],
+	"Hulu": [
+		"http://www.hulu.com/api/oembed.xml?url=http%3A//www.hulu.com/watch/20807/late-night-with-conan-obrien-wed-may-21-2008"
+	],
+	"Instagram": [
+		"http://api.instagram.com/oembed?url=http://instagram.com/p/V8UMy0LjpX/"
+	],
+	"MixCloud": [
+		"http://www.mixcloud.com/oembed/?url=http%3A//www.mixcloud.com/TechnoLiveSets/jon_rundell-live-electrobeach-festival-benidorm-16-08-2013/&format=xml"
+	],
+	"Moby Picture": [
+		"http://api.mobypicture.com/oEmbed?format=xml&url=http://mobypicture.com/user/Henk_Voermans/view/15880044"
+	],
+	"Sapo Videos": [
+		"http://videos.sapo.pt/oembed?url=http://videos.sapo.pt/dNbiosGa9YZHfLrhkA88&format=xml"
+	],
+	"SlideShare": [
+		"http://www.slideshare.net/api/oembed/2?url=http://www.slideshare.net/haraldf/business-quotes-for-2011&format=json"
+	],
+	"Viddler": [
+		"http://www.viddler.com/oembed/?format=xml&url=http%3A%2F%2Fwww.viddler.com%2Fv%2F1646c55"
+	],
+	"VideoJug": [
+		"http://www.videojug.com/oembed.xml?url=http://www.videojug.com/film/how-to-tie-a-knot-braid"
+	],
+	"Vimeo": [
+		"http://vimeo.com/api/oembed.xml?url=http%3A//vimeo.com/7100569"
+	],
+	"nfb.ca": [
+		"http://www.nfb.ca/remote/services/oembed/?url=http://www.nfb.ca/film/aboriginality&format=xml"
+	]
+}

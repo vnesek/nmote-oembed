@@ -42,8 +42,8 @@ BasicOEmbed(
 	"favicon_url":"https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico",
 	"provider_name":"YouTube",
 	"provider_url":"https://www.youtube.com/",
-	"thumbnail_height":360,"
-	thumbnail_url":"https://i.ytimg.com/vi/V_Qo4a_3IeQ/hqdefault.jpg",
+	"thumbnail_height":360,
+	"thumbnail_url":"https://i.ytimg.com/vi/V_Qo4a_3IeQ/hqdefault.jpg",
 	"thumbnail_width":480
 )
 ```

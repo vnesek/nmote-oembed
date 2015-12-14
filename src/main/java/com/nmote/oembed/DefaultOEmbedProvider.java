@@ -34,12 +34,31 @@ import org.jsoup.nodes.Element;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Standar oEmbed provider. Uses autodiscovery and providers.json as found on
+ * http://oembed.com
+ *
+ * @author vnesek
+ */
 public class DefaultOEmbedProvider extends AbstractOEmbedProvider {
 
+	/**
+	 * Sample main program. Resolve URLs passed on command line.
+	 *
+	 * @param args
+	 *            oEmbed URLs to test
+	 * @throws IOException
+	 *             if
+	 */
 	public static void main(String[] args) throws IOException {
+		// "https://www.youtube.com/watch?v=V_Qo4a_3IeQ"
 		OEmbedProvider ep = new DefaultOEmbedProvider();
-		OEmbed e = ep.resolve("https://www.youtube.com/watch?v=V_Qo4a_3IeQ");
-		System.out.println(e);
+		for (String arg : args) {
+			System.out.println("Fetching " + arg);
+			OEmbed e = ep.resolve(arg);
+			System.out.println(e);
+			System.out.println();
+		}
 	}
 
 	private static boolean matchGlob(String text, String glob) {
@@ -76,16 +95,35 @@ public class DefaultOEmbedProvider extends AbstractOEmbedProvider {
 		}
 	}
 
+	/**
+	 * Makes an instance using default HTTP client and Jackson ObjectMapper.
+	 *
+	 * @throws IOException
+	 *             if providers.json can't be loaded
+	 */
 	public DefaultOEmbedProvider() throws IOException {
 		super();
 		loadProviders();
 	}
 
+	/**
+	 * Makes an instance using supplied httpClient and mapper
+	 *
+	 * @param httpClient
+	 *            Apache HTTP client
+	 * @param mapper
+	 *            Jackson ObjectMapper instance
+	 * @throws IOException
+	 *             if providers.json can't be loaded
+	 */
 	public DefaultOEmbedProvider(HttpClient httpClient, ObjectMapper mapper) throws IOException {
 		super(httpClient, mapper);
 		loadProviders();
 	}
 
+	/**
+	 * @see com.nmote.oembed.AbstractOEmbedProvider#getProviderEndpointFor(java.lang.String)
+	 */
 	@Override
 	public ProviderEndpoint getProviderEndpointFor(String url) {
 		for (ProviderInfo p : providers) {
@@ -98,10 +136,22 @@ public class DefaultOEmbedProvider extends AbstractOEmbedProvider {
 		return null;
 	}
 
+	/**
+	 * List all predefined providers (providers.json) metadata.
+	 *
+	 * @return list of predefined providers
+	 */
 	public List<ProviderInfo> getProviders() {
 		return providers;
 	}
 
+	/**
+	 * Find a provider metadata by name.
+	 *
+	 * @param name
+	 *            provider name
+	 * @return provider info instance or null if not found
+	 */
 	public ProviderInfo getProviderByName(String name) {
 		for (ProviderInfo pi : providers) {
 			if (pi.getProviderName().equals(name)) {
@@ -111,6 +161,10 @@ public class DefaultOEmbedProvider extends AbstractOEmbedProvider {
 		return null;
 	}
 
+	/**
+	 * @see com.nmote.oembed.AbstractOEmbedProvider#resolve(java.lang.String,
+	 *      java.lang.Integer[])
+	 */
 	@Override
 	public OEmbed resolve(String url, Integer... maxSize) throws IOException {
 		// Find a provider for a passed URL

@@ -96,6 +96,7 @@
 
 	<profiles>
 		<profile>
+			<!-- To release to maven central: mvn -Dgpg.executable=gpg2 -P release deploy -->
 			<id>release</id>
 			<build>
 				<plugins>

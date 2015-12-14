@@ -5,7 +5,17 @@
 
 package com.nmote.oembed;
 
+/**
+ * Webmention data.
+ *
+ * @author vnesek
+ */
 public interface Webmention {
 
+	/**
+	 * The webmention URL.
+	 *
+	 * @return webmention url
+	 */
 	String getWebmentionUrl();
 }

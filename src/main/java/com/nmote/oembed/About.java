@@ -6,7 +6,7 @@
 package com.nmote.oembed;
 
 /**
- * Version and other misc information.
+ * Version and serial version UID and copyright notice.
  */
 public interface About {
 

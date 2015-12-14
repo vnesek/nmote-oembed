@@ -5,7 +5,17 @@
 
 package com.nmote.oembed;
 
+/**
+ * Extracted favicon data.
+ *
+ * @author vnesek
+ */
 public interface Favicon {
 
+	/**
+	 * Favicon URL
+	 *
+	 * @return favicon URL
+	 */
 	String getFaviconUrl();
 }

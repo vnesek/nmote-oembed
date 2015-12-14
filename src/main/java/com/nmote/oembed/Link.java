@@ -8,6 +8,7 @@ package com.nmote.oembed;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
@@ -17,6 +18,15 @@ import java.util.regex.Pattern;
  * http://tools.ietf.org/html/rfc5988
  *
  * @author vnesek@nmote.com
+ */
+
+/**
+ * @author vnesek
+ *
+ */
+/**
+ * @author vnesek
+ *
  */
 public class Link {
 
@@ -176,6 +186,13 @@ public class Link {
 		}
 	}
 
+	/**
+	 * Parse HTTP Link header
+	 *
+	 * @param header
+	 *            header data
+	 * @return parsed Link instance
+	 */
 	public static Link parse(String header) {
 		Link link = new Link(header);
 		LinkTokenizer tok = new LinkTokenizer(header);
@@ -192,16 +209,32 @@ public class Link {
 		return link;
 	}
 
+	/**
+	 * HTTP Link representation.
+	 */
 	public Link() {
 	}
 
+	/**
+	 * Constructs Link instance from uri.
+	 *
+	 * @param uri
+	 *            HTTP uri
+	 */
 	public Link(String uri) {
-		assert uri != null;
+		Objects.requireNonNull(uri);
 
 		this.uri = uri;
 		this.params = new ArrayList<>();
 	}
 
+	/**
+	 * Get first link parameter by name.
+	 *
+	 * @param name
+	 *            parameter name
+	 * @return parameter value or null if there is no such parameter
+	 */
 	public String get(String name) {
 		for (Parameter p : params) {
 			if (name.equals(p.getName())) {
@@ -211,22 +244,49 @@ public class Link {
 		return null;
 	}
 
+	/**
+	 * Get's a list of all link parameters.
+	 *
+	 * @return all link parameters.
+	 */
 	public List<Parameter> getParameters() {
 		return params;
 	}
 
+	/**
+	 * Get 'rel' parameter.
+	 *
+	 * @return parameter value or null if there is no 'rel' parameter
+	 */
 	public String getRel() {
 		return get("title");
 	}
 
+	/**
+	 * Get 'title' parameter.
+	 *
+	 * @return parameter value or null if there is no 'title' parameter
+	 */
 	public String getTitle() {
 		return get("title");
 	}
 
+	/**
+	 * Get link's URI.
+	 *
+	 * @return link's URI
+	 */
 	public String getUri() {
 		return uri;
 	}
 
+	/**
+	 * Checks if there is specifi 'rel' type parameter.
+	 *
+	 * @param rel
+	 *            'rel' type
+	 * @return there if there is a 'rel' of given type
+	 */
 	public boolean hasRel(String rel) {
 		String r = getRel();
 		if (r == null) {

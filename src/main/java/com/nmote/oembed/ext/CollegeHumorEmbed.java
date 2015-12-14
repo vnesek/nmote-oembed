@@ -9,6 +9,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.nmote.oembed.About;
 import com.nmote.oembed.BasicOEmbed;
 
+/**
+ * College Humor oEmbed extension.
+ *
+ * @author vnesek
+ */
 @JsonIgnoreProperties({ "https" })
 public class CollegeHumorEmbed extends BasicOEmbed {
 

@@ -5,7 +5,17 @@
 
 package com.nmote.oembed;
 
+/**
+ * Pingback data.
+ *
+ * @author vnesek
+ */
 public interface Pingback {
 
+	/**
+	 * Pingback URL.
+	 *
+	 * @return url
+	 */
 	String getPingbackUrl();
 }

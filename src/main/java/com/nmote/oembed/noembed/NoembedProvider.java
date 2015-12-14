@@ -16,16 +16,31 @@ import com.nmote.oembed.ProviderEndpoint;
 
 public class NoembedProvider extends AbstractOEmbedProvider {
 
-	private static final ProviderEndpoint PROVIDER_ENDPOINT = new ProviderEndpoint("http://noembed.com/embed", NoembedEmbed.class);
+	private static final ProviderEndpoint PROVIDER_ENDPOINT = new ProviderEndpoint("http://noembed.com/embed",
+			NoembedEmbed.class);
 
+	/**
+	 * Makes an instance using default HTTP client and Jackson ObjectMapper.
+	 */
 	public NoembedProvider() {
 		super();
 	}
 
+	/**
+	 * Makes an instance using supplied httpClient and mapper.
+	 *
+	 * @param httpClient
+	 *            Apache HTTP client
+	 * @param mapper
+	 *            Jackson ObjectMapper instance
+	 */
 	public NoembedProvider(HttpClient httpClient, ObjectMapper mapper) {
 		super(httpClient, mapper);
 	}
 
+	/**
+	 * @see com.nmote.oembed.AbstractOEmbedProvider#checkEmbedForErrors(com.nmote.oembed.OEmbed)
+	 */
 	@Override
 	protected void checkEmbedForErrors(OEmbed e) throws IOException {
 		String error = ((NoembedEmbed) e).error;
@@ -34,6 +49,9 @@ public class NoembedProvider extends AbstractOEmbedProvider {
 		}
 	}
 
+	/**
+	 * @see com.nmote.oembed.AbstractOEmbedProvider#getProviderEndpointFor(java.lang.String)
+	 */
 	@Override
 	protected ProviderEndpoint getProviderEndpointFor(String url) {
 		return PROVIDER_ENDPOINT;

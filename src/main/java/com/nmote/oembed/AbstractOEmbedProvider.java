@@ -25,10 +25,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public abstract class AbstractOEmbedProvider implements OEmbedProvider {
 
+	/**
+	 * Makes an instance using default HTTP client and Jackson ObjectMapper.
+	 */
 	public AbstractOEmbedProvider() {
 		this(HttpClients.createDefault(), new ObjectMapper());
 	}
 
+	/**
+	 * Makes an instance using supplied httpClient and mapper.
+	 *
+	 * @param httpClient
+	 *            Apache HTTP client
+	 * @param mapper
+	 *            Jackson ObjectMapper instance
+	 */
 	public AbstractOEmbedProvider(HttpClient httpClient, ObjectMapper mapper) {
 		Objects.requireNonNull(httpClient);
 		Objects.requireNonNull(mapper);
@@ -37,6 +48,20 @@ public abstract class AbstractOEmbedProvider implements OEmbedProvider {
 		this.mapper = mapper;
 	}
 
+	/**
+	 * Makes HTTP request expecting oEmbed response. Maps to embedClass
+	 * instance.
+	 *
+	 * @param <T>
+	 *            oEmbed subclass to map data on
+	 * @param url
+	 *            oEmbed URL
+	 * @param embedClass
+	 *            OEmbed implementation class
+	 * @return OEmbed instance
+	 * @throws IOException
+	 *             if HTTP request or mapping fail
+	 */
 	public <T extends OEmbed> T get(String url, final Class<T> embedClass) throws IOException {
 		return httpClient.execute(new HttpGet(url), new ResponseHandler<T>() {
 			@Override
@@ -59,6 +84,10 @@ public abstract class AbstractOEmbedProvider implements OEmbedProvider {
 		});
 	}
 
+	/**
+	 * @see com.nmote.oembed.OEmbedProvider#resolve(java.lang.String,
+	 *      java.lang.Integer[])
+	 */
 	@Override
 	public OEmbed resolve(String url, Integer... maxSize) throws IOException {
 		ProviderEndpoint provider = getProviderEndpointFor(url);
@@ -68,6 +97,19 @@ public abstract class AbstractOEmbedProvider implements OEmbedProvider {
 		return resolve(url, provider, maxSize);
 	}
 
+	/**
+	 * Makes oEmebed request for url using provider.
+	 *
+	 * @param url
+	 *            url to embed
+	 * @param provider
+	 *            oEmbed provider endpoint
+	 * @param maxSize
+	 *            max width and height
+	 * @return OEmbed instance
+	 * @throws IOException
+	 *             if oEmbed data can't be fetched
+	 */
 	public OEmbed resolve(String url, final ProviderEndpoint provider, Integer... maxSize) throws IOException {
 		try {
 			// Format request url
@@ -79,15 +121,48 @@ public abstract class AbstractOEmbedProvider implements OEmbedProvider {
 		}
 	}
 
+	/**
+	 * Some oEmbed providers return errors in response fields instead of using
+	 * HTTP response error codes. Check for errors on such providers.
+	 *
+	 * @param e
+	 *            returned instance
+	 * @throws IOException
+	 *             if error is found on oEmbed instance
+	 */
 	protected void checkEmbedForErrors(OEmbed e) throws IOException {
 	}
 
+	/**
+	 * Get's {@link BasicOEmbed} subclass to use for mapping response.
+	 *
+	 * @param endpoint
+	 *            endpoint used for request
+	 * @return class used to map oEmbed response.
+	 */
 	protected Class<? extends BasicOEmbed> getEmbedClass(ProviderEndpoint endpoint) {
 		return endpoint.embedClass != null ? endpoint.embedClass : BasicOEmbed.class;
 	}
 
+	/**
+	 * Returns ProviderEndpoint to use for given resource url.
+	 *
+	 * @param url
+	 *            resource URL
+	 * @return ProviderEndoint for url or null if none found.
+	 */
 	protected abstract ProviderEndpoint getProviderEndpointFor(String url);
 
+	/**
+	 * Prepares URL prior to making request.
+	 *
+	 * @param builder
+	 *            URI
+	 * @param url
+	 *            embed URL
+	 * @param maxSize
+	 *            max width and height
+	 */
 	protected void prepareRequestURI(URIBuilder builder, String url, Integer... maxSize) {
 		builder.addParameter("url", url);
 		builder.addParameter("format", "json");

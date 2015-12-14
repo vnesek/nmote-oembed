@@ -11,6 +11,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 // Comment out ignore properties to catch provider extensions!
+/**
+ * Standard OEmbed implementation.
+ *
+ * @author vnesek
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BasicOEmbed implements OEmbed, Serializable, Favicon, Pingback, Webmention {
 
@@ -131,82 +136,199 @@ public class BasicOEmbed implements OEmbed, Serializable, Favicon, Pingback, Web
 		return title != null;
 	}
 
+	/**
+	 * Set author name
+	 *
+	 * @param authorName
+	 *            author name
+	 */
 	public void setAuthorName(String authorName) {
 		this.authorName = authorName;
 	}
 
+	/**
+	 * Set author URL
+	 *
+	 * @param authorUrl
+	 *            author URL
+	 */
 	public void setAuthorUrl(String authorUrl) {
 		this.authorUrl = authorUrl;
 	}
 
+	/**
+	 * Set cache age.
+	 *
+	 * @param cacheAge
+	 *            cache age in seconds
+	 */
 	public void setCacheAge(Long cacheAge) {
 		this.cacheAge = cacheAge;
 	}
 
+	/**
+	 * Set description.
+	 *
+	 * @param description
+	 *            description
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	/**
+	 * Set favicon URL.
+	 *
+	 * @param faviconUrl
+	 *            url
+	 */
 	public void setFaviconUrl(String faviconUrl) {
 		this.faviconUrl = faviconUrl;
 	}
 
+	/**
+	 * Set height in pixels.
+	 *
+	 * @param height
+	 *            height in px
+	 */
 	public void setHeight(Integer height) {
 		this.height = height;
 	}
 
+	/**
+	 * Set HTML content.
+	 *
+	 * @param html
+	 *            HTML content
+	 */
 	public void setHtml(String html) {
 		this.html = html;
 	}
 
+	/**
+	 * Set pingback URL.
+	 *
+	 * @param pingbackUrl
+	 *            url
+	 */
 	public void setPingbackUrl(String pingbackUrl) {
 		this.pingbackUrl = pingbackUrl;
 	}
 
+	/**
+	 * Set oEmbed provider name.
+	 *
+	 * @param providerName
+	 *            provider name
+	 */
 	public void setProviderName(String providerName) {
 		this.providerName = providerName;
 	}
 
+	/**
+	 * Set oEmbed provider URL
+	 *
+	 * @param providerUrl
+	 *            url
+	 */
 	public void setProviderUrl(String providerUrl) {
 		this.providerUrl = providerUrl;
 	}
 
+	/**
+	 * Set thumbnail height in pixels.
+	 *
+	 * @param thumbnailHeight
+	 *            height in px
+	 */
 	public void setThumbnailHeight(Integer thumbnailHeight) {
 		this.thumbnailHeight = thumbnailHeight;
 	}
 
+	/**
+	 * Set thumbnail URL.
+	 *
+	 * @param thumbnailUrl
+	 *            url
+	 */
 	public void setThumbnailUrl(String thumbnailUrl) {
 		this.thumbnailUrl = thumbnailUrl;
 	}
 
+	/**
+	 * Set thumbnail width in pixels
+	 *
+	 * @param thumbnailWidth
+	 *            width in px.
+	 */
 	public void setThumbnailWidth(Integer thumbnailWidth) {
 		this.thumbnailWidth = thumbnailWidth;
 	}
 
+	/**
+	 * Set title
+	 *
+	 * @param title
+	 *            title
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
+	/**
+	 * Set oEmbed type.
+	 *
+	 * @param type
+	 *            type
+	 */
 	public void setType(String type) {
 		this.type = type;
 	}
 
+	/**
+	 * Set content URL.
+	 *
+	 * @param url
+	 *            url
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 
+	/**
+	 * Set oEmbed version.
+	 *
+	 * @param version
+	 *            oEmbed version
+	 */
 	public void setVersion(String version) {
 		this.version = version;
 	}
 
+	/**
+	 * Set webmention URL.
+	 *
+	 * @param webmentionUrl
+	 *            callback url
+	 */
 	public void setWebmentionUrl(String webmentionUrl) {
 		this.webmentionUrl = webmentionUrl;
 	}
 
+	/**
+	 * Set width in pixels.
+	 *
+	 * @param width
+	 *            width in px.
+	 */
 	public void setWidth(Integer width) {
 		this.width = width;
 	}
 
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return ToJsonString.toJsonString(this);

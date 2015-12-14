@@ -9,38 +9,88 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.nmote.oembed.About;
 import com.nmote.oembed.BasicOEmbed;
 
+/**
+ * Animoto oEmbed extension.
+ *
+ * @author vnesek
+ */
+
 public class AnimotoEmbed extends BasicOEmbed {
 
 	private static final long serialVersionUID = About.SERIAL_VERSION_UID;
 
+	/**
+	 * Getter for extension property.
+	 *
+	 * @return property value
+	 */
 	public Integer getIconWidth() {
 		return iconWidth;
 	}
 
+	/**
+	 * Getter for extension property.
+	 *
+	 * @return property value
+	 */
 	public Integer getIconHeight() {
 		return iconHeight;
 	}
 
+	/**
+	 * Getter for extension property.
+	 *
+	 * @return property value
+	 */
 	public String getIconUrl() {
 		return iconUrl;
 	}
 
+	/**
+	 * Getter for extension property.
+	 *
+	 * @return property value
+	 */
 	public String getVideoUrl() {
 		return videoUrl;
 	}
 
-	public void setIconWidth(Integer icon_width) {
-		this.iconWidth = icon_width;
+	/**
+	 * Setter for extension property.
+	 *
+	 * @param iconWidth
+	 *            property value
+	 */
+	public void setIconWidth(Integer iconWidth) {
+		this.iconWidth = iconWidth;
 	}
 
+	/**
+	 * Setter for extension property.
+	 *
+	 * @param iconHeight
+	 *            property value
+	 */
 	public void setIconHeight(Integer iconHeight) {
 		this.iconHeight = iconHeight;
 	}
 
+	/**
+	 * Setter for extension property.
+	 *
+	 * @param iconUrl
+	 *            property value
+	 */
 	public void setIconUrl(String iconUrl) {
 		this.iconUrl = iconUrl;
 	}
 
+	/**
+	 * Setter for extension property.
+	 *
+	 * @param videoUrl
+	 *            property value
+	 */
 	public void setVideoUrl(String videoUrl) {
 		this.videoUrl = videoUrl;
 	}

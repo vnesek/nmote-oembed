@@ -35,15 +35,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-
 @SuppressWarnings("all")
-public class SimpleImageInfo {
+class SimpleImageInfo {
 	private int height;
 	private int width;
 	private String mimeType;
 
 	private SimpleImageInfo() {
-
 	}
 
 	public SimpleImageInfo(File file) throws IOException {
@@ -78,17 +76,17 @@ public class SimpleImageInfo {
 
 		if (c1 == 'G' && c2 == 'I' && c3 == 'F') { // GIF
 			is.skip(3);
-			width = readInt(is,2,false);
-			height = readInt(is,2,false);
+			width = readInt(is, 2, false);
+			height = readInt(is, 2, false);
 			mimeType = "image/gif";
 		} else if (c1 == 0xFF && c2 == 0xD8) { // JPG
 			while (c3 == 255) {
 				int marker = is.read();
-				int len = readInt(is,2,true);
+				int len = readInt(is, 2, true);
 				if (marker == 192 || marker == 193 || marker == 194) {
 					is.skip(1);
-					height = readInt(is,2,true);
-					width = readInt(is,2,true);
+					height = readInt(is, 2, true);
+					width = readInt(is, 2, true);
 					mimeType = "image/jpeg";
 					break;
 				}
@@ -97,36 +95,35 @@ public class SimpleImageInfo {
 			}
 		} else if (c1 == 137 && c2 == 80 && c3 == 78) { // PNG
 			is.skip(15);
-			width = readInt(is,2,true);
+			width = readInt(is, 2, true);
 			is.skip(2);
-			height = readInt(is,2,true);
+			height = readInt(is, 2, true);
 			mimeType = "image/png";
 		} else if (c1 == 66 && c2 == 77) { // BMP
 			is.skip(15);
-			width = readInt(is,2,false);
+			width = readInt(is, 2, false);
 			is.skip(2);
-			height = readInt(is,2,false);
+			height = readInt(is, 2, false);
 			mimeType = "image/bmp";
 		} else {
 			int c4 = is.read();
-			if ((c1 == 'M' && c2 == 'M' && c3 == 0 && c4 == 42)
-					|| (c1 == 'I' && c2 == 'I' && c3 == 42 && c4 == 0)) { //TIFF
+			if ((c1 == 'M' && c2 == 'M' && c3 == 0 && c4 == 42) || (c1 == 'I' && c2 == 'I' && c3 == 42 && c4 == 0)) { // TIFF
 				boolean bigEndian = c1 == 'M';
 				int ifd = 0;
 				int entries;
-				ifd = readInt(is,4,bigEndian);
+				ifd = readInt(is, 4, bigEndian);
 				is.skip(ifd - 8);
-				entries = readInt(is,2,bigEndian);
+				entries = readInt(is, 2, bigEndian);
 				for (int i = 1; i <= entries; i++) {
-					int tag = readInt(is,2,bigEndian);
-					int fieldType = readInt(is,2,bigEndian);
-					long count = readInt(is,4,bigEndian);
+					int tag = readInt(is, 2, bigEndian);
+					int fieldType = readInt(is, 2, bigEndian);
+					long count = readInt(is, 4, bigEndian);
 					int valOffset;
 					if ((fieldType == 3 || fieldType == 8)) {
-						valOffset = readInt(is,2,bigEndian);
+						valOffset = readInt(is, 2, bigEndian);
 						is.skip(2);
 					} else {
-						valOffset = readInt(is,4,bigEndian);
+						valOffset = readInt(is, 4, bigEndian);
 					}
 					if (tag == 256) {
 						width = valOffset;
@@ -149,7 +146,7 @@ public class SimpleImageInfo {
 		int ret = 0;
 		int sv = bigEndian ? ((noOfBytes - 1) * 8) : 0;
 		int cnt = bigEndian ? -8 : 8;
-		for(int i=0;i<noOfBytes;i++) {
+		for (int i = 0; i < noOfBytes; i++) {
 			ret |= is.read() << sv;
 			sv += cnt;
 		}

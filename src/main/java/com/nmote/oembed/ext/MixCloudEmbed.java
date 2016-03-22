@@ -39,6 +39,15 @@ public class MixCloudEmbed extends BasicOEmbed {
 		this.imageUrl = imageUrl;
 	}
 
+	@JsonProperty("width")
+	public void setWidthExt(String width) {
+	    try {
+	        super.setWidth(Integer.parseInt(width));
+	    } catch (NumberFormatException e) {
+	        System.err.println("Invalid width: " + width);
+	    }
+	}
+
 	@JsonProperty("image")
 	private String imageUrl;
 

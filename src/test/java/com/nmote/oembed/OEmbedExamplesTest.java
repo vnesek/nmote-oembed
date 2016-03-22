@@ -71,7 +71,7 @@ public class OEmbedExamplesTest {
 		assertTrue(pi.getEndpoints().contains(pe));
 	}
 
-	@Ignore // Network access
+	//@Ignore // Network access
 	@Theory
 	public void resolve(String url) throws IOException, URISyntaxException {
 		DefaultOEmbedProvider ep = new DefaultOEmbedProvider();

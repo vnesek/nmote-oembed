@@ -23,6 +23,10 @@ import org.apache.http.util.EntityUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public abstract class AbstractOEmbedProvider implements OEmbedProvider {
 
 	/**
@@ -44,7 +48,7 @@ public abstract class AbstractOEmbedProvider implements OEmbedProvider {
 		Objects.requireNonNull(httpClient);
 		Objects.requireNonNull(mapper);
 
-		this.httpClient = httpClient;
+		this.httpClient = new OkHttpClient();
 		this.mapper = mapper;
 	}
 
@@ -63,25 +67,15 @@ public abstract class AbstractOEmbedProvider implements OEmbedProvider {
 	 *             if HTTP request or mapping fail
 	 */
 	public <T extends OEmbed> T get(String url, final Class<T> embedClass) throws IOException {
-		return httpClient.execute(new HttpGet(url), new ResponseHandler<T>() {
-			@Override
-			public T handleResponse(HttpResponse response) throws ClientProtocolException, IOException {
-				StatusLine statusLine = response.getStatusLine();
-				int status = statusLine.getStatusCode();
-				if (status < 200 || status > 299) {
-					throw new HttpResponseException(status, statusLine.getReasonPhrase());
-				}
-				HttpEntity entity = response.getEntity();
-				T embed;
-				try {
-					embed = mapper.readValue(entity.getContent(), embedClass);
-				} finally {
-					EntityUtils.consumeQuietly(entity);
-				}
-				checkEmbedForErrors(embed);
-				return embed;
-			}
-		});
+	    Request request = new Request.Builder().url(url).build();
+	    Response response = httpClient.newCall(request).execute();
+	    if (response.isSuccessful()) {
+	        T result = mapper.readValue(response.body().byteStream(), embedClass);
+	        checkEmbedForErrors(result);
+	        return result;
+	    } else {
+	        throw new IOException(String.format("HTTP %s while getting %s", response.message(), url));
+	    }
 	}
 
 	/**
@@ -176,6 +170,6 @@ public abstract class AbstractOEmbedProvider implements OEmbedProvider {
 		}
 	}
 
-	protected final HttpClient httpClient;
+	protected final OkHttpClient httpClient;
 	protected final ObjectMapper mapper;
 }

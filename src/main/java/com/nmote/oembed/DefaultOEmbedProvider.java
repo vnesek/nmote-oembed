@@ -173,9 +173,10 @@ public class DefaultOEmbedProvider extends AbstractOEmbedProvider {
 		if (p != null) {
 			result = super.resolve(url, p, maxSize);
 		} else {
-			result = discover(url, maxSize);
+			//result = discover(url, maxSize);
+		    result = null;
 		}
-
+/*
 		// Check for a favicon in a root of domain
 		if (result instanceof BasicOEmbed) {
 			BasicOEmbed boe = (BasicOEmbed) result;
@@ -189,7 +190,7 @@ public class DefaultOEmbedProvider extends AbstractOEmbedProvider {
 			// pathSegmentEscaper.escape(href)
 			// + "?defaulticon=bluepng";
 		}
-
+*/
 		return result;
 	}
 
@@ -203,7 +204,7 @@ public class DefaultOEmbedProvider extends AbstractOEmbedProvider {
 		}
 		return false;
 	}
-
+/*
 	private BasicOEmbed discover(final String url, final Integer... maxSize) throws IOException {
 		final HttpContext context = new BasicHttpContext();
 		HttpGet get = new HttpGet(url);
@@ -362,7 +363,7 @@ public class DefaultOEmbedProvider extends AbstractOEmbedProvider {
 
 		return result;
 	}
-
+*/
 	private void extractPingbackUrl(BasicOEmbed embed, HttpResponse response) {
 		Header h = response.getFirstHeader("X-Pingback");
 		if (h != null) {

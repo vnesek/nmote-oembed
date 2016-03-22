@@ -58,8 +58,7 @@ public class EmbedlyProvider extends AbstractOEmbedProvider {
 	}
 
 	/**
-	 * @see com.nmote.oembed.AbstractOEmbedProvider#prepareRequestURI(org.apache.http.client.utils.URIBuilder,
-	 *      java.lang.String, java.lang.Integer[])
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected void prepareRequestURI(HttpUrl.Builder builder, String url, Integer... maxSize) {

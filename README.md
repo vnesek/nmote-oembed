@@ -10,7 +10,7 @@ See http://oembed.com
 Features
 --------
 
-* Autodiscovery for any website supporting oEmbed
+* Auto discovery for any website supporting oEmbed
 * Out-of-box support for YouTube, Viddler, Flickr, IFTTT, ...
 * Support for vendor extensions
 * Support for embedly and noembed oEmbed proxy services
@@ -30,7 +30,7 @@ Get oEmbed info from YouTube URL:
 
 produces:
 ```
-BasicOEmbed(
+BasicOEmbed[
 	"height":344,
 	"html":"<iframe width=\"459\" height=\"344\" src=\"https://www.youtube.com/embed/V_Qo4a_3IeQ?feature=oembed\" frameborder=\"0\" allowfullscreen></iframe>",
 	"title":"LEGO train crash high speed Eurostar and ICE 3 on 9V double track",
@@ -45,7 +45,7 @@ BasicOEmbed(
 	"thumbnail_height":360,
 	"thumbnail_url":"https://i.ytimg.com/vi/V_Qo4a_3IeQ/hqdefault.jpg",
 	"thumbnail_width":480
-)
+]
 ```
 
 Add to Your's Project
@@ -60,11 +60,16 @@ If you use maven for dependency management, add following snippet to pom.xml:
 		<dependency>
 			<groupId>com.nmote.oembed</groupId>
 			<artifactId>nmote-oembed</artifactId>
-			<version>0.7</version>
+			<version>0.8</version>
 		</dependency>
 
 	</dependencies>
 ```
+
+Changes
+-------
+
+* 0.8 Replaced Apaches HTTP client with Square's OkHttp. Much saner API.
 
 Building
 --------

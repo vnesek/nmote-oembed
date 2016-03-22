@@ -19,15 +19,6 @@ import java.util.regex.Pattern;
  *
  * @author vnesek@nmote.com
  */
-
-/**
- * @author vnesek
- *
- */
-/**
- * @author vnesek
- *
- */
 public class Link {
 
 	public static class Parameter {

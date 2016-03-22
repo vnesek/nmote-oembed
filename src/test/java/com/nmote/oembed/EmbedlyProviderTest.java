@@ -5,24 +5,20 @@
 
 package com.nmote.oembed;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
+import static org.junit.Assert.*;
 
-import org.apache.http.client.HttpResponseException;
+import java.io.IOException;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.nmote.oembed.OEmbed;
-import com.nmote.oembed.OEmbedProvider;
 import com.nmote.oembed.embedly.EmbedlyProvider;
-
-import static org.junit.Assert.*;
 
 public class EmbedlyProviderTest {
 
 	@Ignore
 	@Test
-	public void instantcom() throws IOException, URISyntaxException {
+	public void instantcom() throws IOException {
 		OEmbed e = provider.resolve("http://www.instantcom.net");
 		assertEquals("http://www.instantcom.net", e.getProviderUrl());
 		assertEquals("Instantcom", e.getProviderName());
@@ -31,14 +27,14 @@ public class EmbedlyProviderTest {
 	}
 
 	@Ignore
-	@Test(expected = HttpResponseException.class)
-	public void nmote() throws IOException, URISyntaxException {
+	@Test(expected = IOException.class)
+	public void nmote() throws IOException {
 		provider.resolve("http://www.nmote.net");
 	}
 
 	@Ignore
 	@Test
-	public void oldSpiceOverBitly() throws IOException, URISyntaxException {
+	public void oldSpiceOverBitly() throws IOException {
 		OEmbed e = provider.resolve("http://bit.ly/cXVifg");
 		assertEquals("Old Spice", e.getAuthorName());
 		assertEquals("https://www.youtube.com/user/OldSpice", e.getAuthorUrl());
@@ -50,7 +46,7 @@ public class EmbedlyProviderTest {
 
 	@Ignore
 	@Test
-	public void yfrog() throws IOException, URISyntaxException {
+	public void yfrog() throws IOException {
 		OEmbed e = provider.resolve("http://yfrog.com/ng41306327j");
 		assertEquals("http://a.yfrog.com/img844/1410/41306327.jpg", e.getThumbnailUrl());
 		assertEquals("http://yfrog.com", e.getProviderUrl());

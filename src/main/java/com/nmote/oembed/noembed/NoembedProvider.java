@@ -7,12 +7,12 @@ package com.nmote.oembed.noembed;
 
 import java.io.IOException;
 
-import org.apache.http.client.HttpClient;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nmote.oembed.AbstractOEmbedProvider;
 import com.nmote.oembed.OEmbed;
 import com.nmote.oembed.ProviderEndpoint;
+
+import okhttp3.OkHttpClient;
 
 public class NoembedProvider extends AbstractOEmbedProvider {
 
@@ -30,11 +30,11 @@ public class NoembedProvider extends AbstractOEmbedProvider {
 	 * Makes an instance using supplied httpClient and mapper.
 	 *
 	 * @param httpClient
-	 *            Apache HTTP client
+	 *            OkHTTP client
 	 * @param mapper
 	 *            Jackson ObjectMapper instance
 	 */
-	public NoembedProvider(HttpClient httpClient, ObjectMapper mapper) {
+	public NoembedProvider(OkHttpClient httpClient, ObjectMapper mapper) {
 		super(httpClient, mapper);
 	}
 

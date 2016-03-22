@@ -7,12 +7,12 @@ package com.nmote.oembed.embedly;
 
 import java.util.Objects;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.utils.URIBuilder;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nmote.oembed.AbstractOEmbedProvider;
 import com.nmote.oembed.ProviderEndpoint;
+
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
 
 public class EmbedlyProvider extends AbstractOEmbedProvider {
 
@@ -38,11 +38,11 @@ public class EmbedlyProvider extends AbstractOEmbedProvider {
 	 * @param apiKey
 	 *            your's embedly API key
 	 * @param httpClient
-	 *            Apache HTTP client
+	 *            OkHTTP client
 	 * @param mapper
 	 *            Jackson ObjectMapper instance
 	 */
-	public EmbedlyProvider(String apiKey, HttpClient httpClient, ObjectMapper mapper) {
+	public EmbedlyProvider(String apiKey, OkHttpClient httpClient, ObjectMapper mapper) {
 		super(httpClient, mapper);
 
 		Objects.requireNonNull(apiKey);
@@ -62,9 +62,9 @@ public class EmbedlyProvider extends AbstractOEmbedProvider {
 	 *      java.lang.String, java.lang.Integer[])
 	 */
 	@Override
-	protected void prepareRequestURI(URIBuilder builder, String url, Integer... maxSize) {
+	protected void prepareRequestURI(HttpUrl.Builder builder, String url, Integer... maxSize) {
 		super.prepareRequestURI(builder, url, maxSize);
-		builder.addParameter("key", apiKey);
+		builder.addQueryParameter("key", apiKey);
 	}
 
 	private final String apiKey;

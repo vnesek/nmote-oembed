@@ -59,9 +59,6 @@
 	"Viddler": [
 		"http://www.viddler.com/oembed/?format=xml&url=http%3A%2F%2Fwww.viddler.com%2Fv%2F1646c55"
 	],
-	"VideoJug": [
-		"http://www.videojug.com/oembed.xml?url=http://www.videojug.com/film/how-to-tie-a-knot-braid"
-	],
 	"Vimeo": [
 		"http://vimeo.com/api/oembed.xml?url=http%3A//vimeo.com/7100569"
 	],

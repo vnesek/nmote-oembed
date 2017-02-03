@@ -156,6 +156,7 @@ public abstract class AbstractOEmbedProvider implements OEmbedProvider {
                 builder.addQueryParameter("maxheight", maxSize[1].toString());
             }
         }
+        System.out.println(builder);
     }
 
     protected final OkHttpClient httpClient;

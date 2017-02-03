@@ -60,7 +60,7 @@ If you use maven for dependency management, add following snippet to pom.xml:
 		<dependency>
 			<groupId>com.nmote.oembed</groupId>
 			<artifactId>nmote-oembed</artifactId>
-			<version>0.8</version>
+			<version>0.9</version>
 		</dependency>
 
 	</dependencies>
@@ -68,6 +68,8 @@ If you use maven for dependency management, add following snippet to pom.xml:
 
 Changes
 -------
+
+* 0.9 Updated deps and added support for facebook videos.
 
 * 0.8 Replaced Apaches HTTP client with Square's OkHttp. Much saner API.
 

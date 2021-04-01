@@ -57,16 +57,17 @@ public abstract class AbstractOEmbedProvider implements OEmbedProvider {
      */
     public <T extends OEmbed> T get(String url, final Class<T> embedClass) throws IOException {
         Request request = new Request.Builder().url(url).build();
-        Response response = httpClient.newCall(request).execute();
-        if (response.isSuccessful()) {
-            try (InputStream in = response.body().byteStream()) {
-                T result = mapper.readValue(in, embedClass);
-                checkEmbedForErrors(result);
-                return result;
+        try (Response response = httpClient.newCall(request).execute()) { // auto-close response
+            if (response.isSuccessful()) {
+                try (InputStream in = response.body().byteStream()) {
+                    T result = mapper.readValue(in, embedClass);
+                    checkEmbedForErrors(result);
+                    return result;
+                }
+            } else {
+                throw new IOException(
+                        String.format("HTTP %d/%s while getting %s", response.code(), response.message(), url));
             }
-        } else {
-            throw new IOException(
-                    String.format("HTTP %d/%s while getting %s", response.code(), response.message(), url));
         }
     }
 
